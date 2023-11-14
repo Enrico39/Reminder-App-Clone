@@ -51,9 +51,20 @@ struct newReminderView: View {
                 }
                 
                 Section{
-                    NavigationLink("Elenco") {
-                        
-                        comingSoonView()
+                    NavigationLink(destination: Text("Elenco")) {
+                        Label {
+                            HStack {
+                                Text("Elenco")
+                                Spacer()
+                                Text("Promemoria")
+                                    .foregroundColor(.secondary)
+                            }
+                            
+                        } icon: {
+                            Image(systemName: "list.bullet.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(Color.orange)
+                        }
                     }
                     
                 }

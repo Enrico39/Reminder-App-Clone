@@ -13,15 +13,22 @@ struct ContentView: View {
     @State var isPresented:Bool = false
     var body: some View {
         NavigationView{
-            List {
-                ForEach(searchResults, id: \.self) { name in
+            
+            
+            
+            
+/*                ForEach(searchResults, id: \.self) { name in
                     NavigationLink {
                         Text(name)
                     } label: {
                         Text(name)
                     }
-                }
-            }
+                }*/
+                
+                
+                
+                cardsReminderView()
+            
             .toolbar {
                 ToolbarItem(placement:.secondaryAction ) {
                     
