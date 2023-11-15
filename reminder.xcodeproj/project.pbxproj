@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AA4527B72B0295B700AEAAEE /* comingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4527B62B0295B700AEAAEE /* comingSoonView.swift */; };
+		AA89BB8D2B0552F20091EC95 /* CompletatiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89BB8C2B0552F20091EC95 /* CompletatiView.swift */; };
+		AA89BB8F2B0553450091EC95 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89BB8E2B0553450091EC95 /* TaskCell.swift */; };
+		AA89BB912B05546C0091EC95 /* ContrassegnatiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89BB902B05546C0091EC95 /* ContrassegnatiView.swift */; };
+		AA89BB932B0556580091EC95 /* CompletedTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89BB922B0556580091EC95 /* CompletedTaskCell.swift */; };
 		AABCA99E2B03A98C00D49F6F /* cardsReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */; };
 		AABCA9A02B03CB2700D49F6F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA99F2B03CB2700D49F6F /* Reminder.swift */; };
 		AABCA9A22B040C6700D49F6F /* PromemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */; };
@@ -20,6 +24,10 @@
 
 /* Begin PBXFileReference section */
 		AA4527B62B0295B700AEAAEE /* comingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comingSoonView.swift; sourceTree = "<group>"; };
+		AA89BB8C2B0552F20091EC95 /* CompletatiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletatiView.swift; sourceTree = "<group>"; };
+		AA89BB8E2B0553450091EC95 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		AA89BB902B05546C0091EC95 /* ContrassegnatiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrassegnatiView.swift; sourceTree = "<group>"; };
+		AA89BB922B0556580091EC95 /* CompletedTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskCell.swift; sourceTree = "<group>"; };
 		AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsReminderView.swift; sourceTree = "<group>"; };
 		AABCA99F2B03CB2700D49F6F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromemoriaView.swift; sourceTree = "<group>"; };
@@ -42,6 +50,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA89BB942B055B0C0091EC95 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAE8AB752B0289B10029580E /* ContentView.swift */,
+				AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */,
+				AAE8AB812B028C800029580E /* newReminderView.swift */,
+				AA89BB952B055B1D0091EC95 /* ReminderListsViews */,
+				AA4527B62B0295B700AEAAEE /* comingSoonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA89BB952B055B1D0091EC95 /* ReminderListsViews */ = {
+			isa = PBXGroup;
+			children = (
+				AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */,
+				AA89BB8C2B0552F20091EC95 /* CompletatiView.swift */,
+				AA89BB902B05546C0091EC95 /* ContrassegnatiView.swift */,
+				AA89BB8E2B0553450091EC95 /* TaskCell.swift */,
+				AA89BB922B0556580091EC95 /* CompletedTaskCell.swift */,
+			);
+			path = ReminderListsViews;
+			sourceTree = "<group>";
+		};
 		AAE8AB672B0289B10029580E = {
 			isa = PBXGroup;
 			children = (
@@ -62,11 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE8AB732B0289B10029580E /* reminderApp.swift */,
-				AAE8AB752B0289B10029580E /* ContentView.swift */,
-				AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */,
-				AA4527B62B0295B700AEAAEE /* comingSoonView.swift */,
-				AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */,
-				AAE8AB812B028C800029580E /* newReminderView.swift */,
+				AA89BB942B055B0C0091EC95 /* Views */,
 				AABCA99F2B03CB2700D49F6F /* Reminder.swift */,
 				AAE8AB772B0289B20029580E /* Assets.xcassets */,
 				AAE8AB792B0289B20029580E /* Preview Content */,
@@ -152,12 +180,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA89BB932B0556580091EC95 /* CompletedTaskCell.swift in Sources */,
 				AABCA99E2B03A98C00D49F6F /* cardsReminderView.swift in Sources */,
 				AAE8AB822B028C800029580E /* newReminderView.swift in Sources */,
 				AA4527B72B0295B700AEAAEE /* comingSoonView.swift in Sources */,
 				AABCA9A02B03CB2700D49F6F /* Reminder.swift in Sources */,
+				AA89BB8D2B0552F20091EC95 /* CompletatiView.swift in Sources */,
 				AAE8AB762B0289B10029580E /* ContentView.swift in Sources */,
 				AAE8AB742B0289B10029580E /* reminderApp.swift in Sources */,
+				AA89BB912B05546C0091EC95 /* ContrassegnatiView.swift in Sources */,
+				AA89BB8F2B0553450091EC95 /* TaskCell.swift in Sources */,
 				AABCA9A22B040C6700D49F6F /* PromemoriaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

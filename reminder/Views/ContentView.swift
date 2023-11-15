@@ -33,7 +33,7 @@ struct ContentView: View {
                             
                             
                             cardsReminderView(isPresented: $isPresented)
-                            
+                             
                                 .toolbar {
                                     
                                     ToolbarItem(placement:.secondaryAction ) {
@@ -116,9 +116,9 @@ struct ContentView: View {
     
     
     func addSamples() {
-        let rome = Reminder(titolo: "Rome")
-        let florence = Reminder(titolo: "Florence")
-        let naples = Reminder(titolo: "Naples")
+        let rome = Reminder(titolo: "Apple Academy",note: "Arriva in tempo e ricorda di fare Badge-in!")
+        let florence = Reminder(titolo: "Andare dal Dentista")
+        let naples = Reminder(titolo: "Pranzo al Sushi", note: "Mangia più che puoi!")
         modelContext.insert(rome)
         modelContext.insert(florence)
         modelContext.insert(naples)

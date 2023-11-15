@@ -26,19 +26,25 @@ struct cardsReminderView: View {
             VStack {
                 LazyVGrid(columns: columns, spacing: 20) {
                     // TodayCardView(title: "Today", number: 0)
-                    CardView(systemImageName: "calendar.circle.fill", systemImageColor: .red, title: "Programmati", number: "10")
+                 /*   CardView(systemImageName: "calendar.circle.fill", systemImageColor: .red, title: "Programmati", number:"2")
+                    */
+                    
                     
                     NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
                         
-                        CardView(systemImageName: "tray.circle.fill", systemImageColor: .black, title: "Tutti", number: "10")
+                        CardView(systemImageName: "tray.circle.fill", systemImageColor: .black, title: "Tutti", number: String(reminders.filter { !$0.completato }.count))
                         
-                            .navigationTitle("Tuttiii")
+                            //.navigationTitle("Tuttiii")
                     }
                     
-                    NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
-                        CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: "4")
-                    }
-                    CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .gray, title: "Completati", number: "")
+                    NavigationLink(destination: ContrassegnatiView(isPresented: $isPresented)){
+                        CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: String(reminders.filter { $0.contrassegnato }.count))
+                     }
+                    
+                    
+                    NavigationLink(destination: CompletatiView(isPresented: $isPresented)){
+                        
+                        CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .gray, title: "Completati", number: "")}
                 }
                 
                 .padding()
@@ -145,6 +151,8 @@ struct CardView: View {
                 Text(number)
                     .font(.system(.title, design: .rounded))
                     .fontWeight(.bold)
+                    .foregroundColor(Color.primary)
+                    
             }
             .padding(.horizontal, 4.0)
             Text(title)
