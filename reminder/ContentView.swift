@@ -14,88 +14,102 @@ struct ContentView: View {
     let names = ["Holly", "Josh", "Rhonda", "Ted"]
     @State private var searchText = ""
     @State var isPresented:Bool = false
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some View {
-        NavigationView{
-            
-            
-            
-            
-/*                ForEach(searchResults, id: \.self) { name in
-                    NavigationLink {
-                        Text(name)
-                    } label: {
-                        Text(name)
-                    }
-                }*/
-                
-                
-                
-                cardsReminderView()
-      
-             
-
-            
-                .toolbar {
-                    ToolbarItem(placement:.secondaryAction ) {
-                        
-                        
-                        
-                        NavigationLink(destination: {comingSoonView()}, label: {
-                            Text("Modifica elenchi")
-                            Image(systemName: "pencil")})
-                    }
+        
+           
+                NavigationView{
                     
-                    ToolbarItem(placement:.secondaryAction ) {
-                        NavigationLink(destination: {comingSoonView()}, label: {
-                            Text("Modelli")
-                            Image(systemName: "square.on.square")})
-                    }
-                    
-                    ToolbarItem(placement: .bottomBar, content: {
+                    ZStack{
+                       
+                        Color(uiColor: .systemBackground)
+                        Color(uiColor: .secondarySystemBackground)
+                              .ignoresSafeArea(.all)
                         
-                        Button(action: {isPresented = true}, label: {
-                            Image(systemName: "plus.circle.fill")
-                            Text("Promemoria")
-                                .fontWeight(.bold)
-                        }).sheet(isPresented: $isPresented) {
-                            newReminderView(isPresented: $isPresented)
+                        ScrollView{
+                            
+                            
+                            
+                            
+                            cardsReminderView(isPresented: $isPresented)
+                            
+                                .toolbar {
+                                    
+                                    ToolbarItem(placement:.secondaryAction ) {
+                                        NavigationLink(destination: {comingSoonView()}, label: {
+                                            Text("Modifica elenchi")
+                                            Image(systemName: "pencil")})
+                                    }
+                                    
+                                    ToolbarItem(placement:.secondaryAction ) {
+                                        NavigationLink(destination: {comingSoonView()}, label: {
+                                            Text("Modelli")
+                                            Image(systemName: "square.on.square")})
+                                    }
+                                    
+                                    ToolbarItem(placement: .bottomBar, content: {
+                                        
+                                        Button(action: {isPresented = true}, label: {
+                                            Image(systemName: "plus.circle.fill")
+                                            Text("Promemoria")
+                                                .fontWeight(.bold)
+                                        }).sheet(isPresented: $isPresented) {
+                                            newReminderView(isPresented: $isPresented)
+                                        }
+                                    })
+                                    
+                                    ToolbarItem(placement: .bottomBar, content: {
+                                        
+                                        Button(action: {addSamples()}, label: {
+                                            
+                                            Text("Aggiungi elenco")
+                                                .fontWeight(.bold)
+                                            
+                                            
+                                            
+                                        }).sheet(isPresented: $isPresented) {
+                                            newReminderView(isPresented: $isPresented)
+                                        }
+                                    })
+                                    
+                                }
+                            
+                            /*  ForEach(searchResults, id: \.self) { name in
+                             NavigationLink {
+                             Text(name)
+                             } label: {
+                             Text(name)
+                             }
+                             }*/
+                            
                         }
-                    })
-                    
-                    ToolbarItem(placement: .bottomBar, content: {
- 
-                        Button(action: {addSamples()}, label: {
-                            
-                            Text("Aggiungi elenco")
-                                .fontWeight(.bold)
-                            
-                           
-                            
-                        }).sheet(isPresented: $isPresented) {
-                            newReminderView(isPresented: $isPresented)
-                        }
-                    })
-                    
-                }
+                        .background(colorScheme == .dark ? Color.black : Color.clear)
 
+                        
+                        
+                        
+                        
+                        
+                        .searchable(text: $searchText)
+                    }
+                
+            }
+
+                
             
             
-        }
-        .searchable(text: $searchText)
         
-        
-        
-        
-        
+           
     }
     
     
     
     var searchResults: [String] {
         if searchText.isEmpty {
-            return names
+            return reminders.map { $0.titolo }
         } else {
-            return names.filter { $0.contains(searchText) }
+            return reminders.map { $0.titolo }.filter { $0.contains(searchText) }
         }
     }
     

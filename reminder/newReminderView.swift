@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct newReminderView: View {
+    @Query var reminders: [Reminder]
+    @Environment(\.modelContext) var modelContext
     
     @State private var titolo: String = ""
     
@@ -90,11 +92,16 @@ struct newReminderView: View {
                 }
                 
                 ToolbarItem(placement:.confirmationAction ) {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        let reminder = Reminder(titolo: titolo, note: note)
+                       modelContext.insert(reminder)
+                        isPresented = false
+                        
+                    }, label: {
                         Text("Aggiungi")
                             .font(.headline)
                             .fontWeight(.bold)
-                    })
+                    }).disabled(titolo.isEmpty)
                 }
                 
             }
@@ -102,21 +109,7 @@ struct newReminderView: View {
             
             
             
-            HStack {
-                Button(action: {}, label: {
-                    Text("Annulla")
-                        
-                })
-                
-                Text("Nuovo promemoria")
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
-                    .padding(40)
-                Button(action: {}, label: {
-                    Text("Aggiungi")
-                        .fontWeight(.semibold)
-                })
-            }
+            
             
             
         }
@@ -124,9 +117,14 @@ struct newReminderView: View {
         
     }
     
+    
+    
+     
+    
 }
 
 
 #Preview {
-    newReminderView(isPresented: .constant(true))
+ 
+     newReminderView(isPresented: .constant(true))
 }

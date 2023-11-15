@@ -10,6 +10,7 @@
 		AA4527B72B0295B700AEAAEE /* comingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4527B62B0295B700AEAAEE /* comingSoonView.swift */; };
 		AABCA99E2B03A98C00D49F6F /* cardsReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */; };
 		AABCA9A02B03CB2700D49F6F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA99F2B03CB2700D49F6F /* Reminder.swift */; };
+		AABCA9A22B040C6700D49F6F /* PromemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */; };
 		AAE8AB742B0289B10029580E /* reminderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB732B0289B10029580E /* reminderApp.swift */; };
 		AAE8AB762B0289B10029580E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE8AB752B0289B10029580E /* ContentView.swift */; };
 		AAE8AB782B0289B20029580E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE8AB772B0289B20029580E /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		AA4527B62B0295B700AEAAEE /* comingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comingSoonView.swift; sourceTree = "<group>"; };
 		AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsReminderView.swift; sourceTree = "<group>"; };
 		AABCA99F2B03CB2700D49F6F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromemoriaView.swift; sourceTree = "<group>"; };
 		AAE8AB702B0289B10029580E /* reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE8AB732B0289B10029580E /* reminderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminderApp.swift; sourceTree = "<group>"; };
 		AAE8AB752B0289B10029580E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				AAE8AB752B0289B10029580E /* ContentView.swift */,
 				AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */,
 				AA4527B62B0295B700AEAAEE /* comingSoonView.swift */,
+				AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */,
 				AAE8AB812B028C800029580E /* newReminderView.swift */,
 				AABCA99F2B03CB2700D49F6F /* Reminder.swift */,
 				AAE8AB772B0289B20029580E /* Assets.xcassets */,
@@ -155,6 +158,7 @@
 				AABCA9A02B03CB2700D49F6F /* Reminder.swift in Sources */,
 				AAE8AB762B0289B10029580E /* ContentView.swift in Sources */,
 				AAE8AB742B0289B10029580E /* reminderApp.swift in Sources */,
+				AABCA9A22B040C6700D49F6F /* PromemoriaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

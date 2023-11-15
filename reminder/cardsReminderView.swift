@@ -9,10 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct cardsReminderView: View {
+    @Binding var isPresented:Bool
+
     @Query var reminders: [Reminder]
     @Environment(\.modelContext) var modelContext
     let columns = [GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20)]
     var body: some View {
+        
+        
+        
         ZStack {
             //Background Color
             Color(uiColor: .systemGroupedBackground)
@@ -22,8 +27,17 @@ struct cardsReminderView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     // TodayCardView(title: "Today", number: 0)
                     CardView(systemImageName: "calendar.circle.fill", systemImageColor: .red, title: "Programmati", number: "10")
-                    CardView(systemImageName: "tray.circle.fill", systemImageColor: .black, title: "Tutti", number: "10")
-                    CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: "4")
+                    
+                    NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
+                        
+                        CardView(systemImageName: "tray.circle.fill", systemImageColor: .black, title: "Tutti", number: "10")
+                        
+                            .navigationTitle("Tuttiii")
+                    }
+                    
+                    NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
+                        CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: "4")
+                    }
                     CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .gray, title: "Completati", number: "")
                 }
                 
@@ -34,17 +48,8 @@ struct cardsReminderView: View {
                 
                 //ELENCHI
                 
+               
                 
-                List {
-                    ForEach(reminders) { reminder in
-                        VStack(alignment: .leading) {
-                            Text(reminder.titolo)
-                                .font(.headline)
-                            
-                            
-                        }
-                    }
-                }
                 /*
                  List {
                  NavigationLink(destination: Text("iCloud")) {
@@ -115,7 +120,7 @@ struct cardsReminderView: View {
 }
 
 #Preview {
-    cardsReminderView()
+    cardsReminderView(isPresented: .constant(false))
 }
 
 
