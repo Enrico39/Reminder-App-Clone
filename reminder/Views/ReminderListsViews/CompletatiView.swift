@@ -16,22 +16,7 @@ struct CompletatiView: View {
     var body: some View {
         
       
-        // (2)
-        
-          /*  HStack {
-                Text("Completati")
-                Spacer()
-                //Text("\(reminders.count)")
-            }
-            .font(.system(.largeTitle, design: .rounded))
-            .bold()
-            .foregroundColor(Color.gray)
-            .padding(.horizontal)
-            .accessibilityLabel("Tutti i Promemoria")
-            */
-            
-            
-            
+          
             
                 List {
                     HStack{
@@ -60,9 +45,10 @@ struct CompletatiView: View {
                             .swipeActions {
                                 
                                 Button {
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        modelContext.delete(reminder)
-                                    }
+                                
+                                    
+                                    withAnimation {
+                                        modelContext.delete(reminder)                                                                }
                                     
                                     print("Message deleted")
                                 } label: {
@@ -75,21 +61,12 @@ struct CompletatiView: View {
                     }
                 }
                 
-                //  .navigationBarTitle("Completati", displayMode: .large)
-                
+             
                 
             }
                 
                 .navigationBarTitle("Completati", displayMode: .large)
-
-            
-        
-
  
-
-
-            //.onDelete(perform: deleteDestinations)
-        
         
         }
     

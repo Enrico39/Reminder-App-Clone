@@ -32,12 +32,11 @@ struct cardsReminderView: View {
                     
                     NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
                         
-                        CardView(systemImageName: "tray.circle.fill", systemImageColor: .black, title: "Tutti", number: String(reminders.filter { !$0.completato }.count))
+                        CardView(systemImageName: "tray.circle.fill", systemImageColor: .gray, title: "Tutti", number: String(reminders.filter { !$0.completato }.count))
                             .accessibilityLabel("Promemoria")
                             .accessibilityIdentifier(/*@START_MENU_TOKEN@*/"Identifier"/*@END_MENU_TOKEN@*/)
                         
-                            //.navigationTitle("Tuttiii")
-                    }
+                     }
                     
                     NavigationLink(destination: ContrassegnatiView(isPresented: $isPresented)){
                         CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: String(reminders.filter { $0.contrassegnato }.count))
@@ -47,7 +46,7 @@ struct cardsReminderView: View {
                     
                     NavigationLink(destination: CompletatiView(isPresented: $isPresented)){
                         
-                        CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .gray, title: "Completati", number: "")
+                        CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .teal, title: "Completati", number: "")
                             .accessibilityLabel("Promemoria Completati")
                         .accessibilityIdentifier(/*@START_MENU_TOKEN@*/"Identifier"/*@END_MENU_TOKEN@*/)}
                 }

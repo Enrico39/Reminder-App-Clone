@@ -15,115 +15,114 @@ struct ContentView: View {
     @State private var searchText = ""
     @State var isPresented:Bool = false
     @Environment(\.colorScheme) var colorScheme
-
+    
     var body: some View {
         
-           
-                NavigationView{
+        
+        NavigationView{
+            
+            ZStack{
+                
+                Color(uiColor: .systemBackground)
+                Color(uiColor: .secondarySystemBackground)
+                    .ignoresSafeArea(.all)
+                
+                ScrollView{
                     
-                    ZStack{
-                       
-                        Color(uiColor: .systemBackground)
-                        Color(uiColor: .secondarySystemBackground)
-                              .ignoresSafeArea(.all)
-                        
-                        ScrollView{
-                            
-                            
-                            if searchText.isEmpty {
-                                                    // Mostra la vista delle card quando non si sta cercando
-                                                    cardsReminderView(isPresented: $isPresented)
-                                    .toolbar {
-                                        
-                                        ToolbarItem(placement:.secondaryAction ) {
-                                            NavigationLink(destination: {comingSoonView()}, label: {
-                                                Text("Modifica elenchi")
-                                                Image(systemName: "pencil")})
-                                        }
-                                        
-                                        ToolbarItem(placement:.secondaryAction ) {
-                                            NavigationLink(destination: {comingSoonView()}, label: {
-                                                Text("Modelli")
-                                                Image(systemName: "square.on.square")})
-                                        }
-                                        
-                                        ToolbarItem(placement: .bottomBar, content: {
-                                            
-                                            Button(action: {isPresented = true}, label: {
-                                                Image(systemName: "plus.circle.fill")
-                                                Text("Promemoria")
-                                                    .fontWeight(.bold)
-                                            }).sheet(isPresented: $isPresented) {
-                                                newReminderView(isPresented: $isPresented)
-                                            }
-                                        })
-                                        
-                                        ToolbarItem(placement: .bottomBar, content: {
-                                            
-                                            Button(action: {addSamples()}, label: {
-                                                
-                                                Text("Aggiungi elenco")
-                                                    .fontWeight(.bold)
-                                                
-                                                
-                                                
-                                            }).sheet(isPresented: $isPresented) {
-                                                newReminderView(isPresented: $isPresented)
-                                            }
-                                        })
-                                        
+                    
+                    if searchText.isEmpty {
+                        // Mostra la vista delle card quando non si sta cercando
+                        cardsReminderView(isPresented: $isPresented)
+                            .toolbar {
+                                
+                                ToolbarItem(placement:.secondaryAction ) {
+                                    NavigationLink(destination: {comingSoonView()}, label: {
+                                        Text("Modifica elenchi")
+                                        Image(systemName: "pencil")})
+                                }
+                                
+                                ToolbarItem(placement:.secondaryAction ) {
+                                    NavigationLink(destination: {comingSoonView()}, label: {
+                                        Text("Modelli")
+                                        Image(systemName: "square.on.square")})
+                                }
+                                
+                                ToolbarItem(placement: .bottomBar, content: {
+                                    
+                                    Button(action: {isPresented = true}, label: {
+                                        Image(systemName: "plus.circle.fill")
+                                        Text("Promemoria")
+                                            .fontWeight(.bold)
+                                    }).sheet(isPresented: $isPresented) {
+                                        newReminderView(isPresented: $isPresented)
                                     }
-                                                } else {
-                                                    // Mostra i risultati della ricerca
-                                                    ForEach(filteredReminders) { reminder in
-                                                                    if !reminder.completato {
-                                                                        TaskCell(reminder: reminder)
-                                                                            .listRowBackground(Color.clear)
-                                                                            .listRowInsets(EdgeInsets())
-                                                                            .swipeActions {
-                                                                                 
-                                                                            }
-                                                                    }
-                                                                }
-                                                            }
-                                                }
-                        .background(colorScheme == .dark ? Color.black : Color.clear)
-
-                         //   cardsReminderView(isPresented: $isPresented)
-                             
-                              
-                            
-                            /*  ForEach(searchResults, id: \.self) { name in
-                             NavigationLink {
-                             Text(name)
-                             } label: {
-                             Text(name)
-                             }
-                             }*/
-                            
+                                })
+                                
+                                ToolbarItem(placement: .bottomBar, content: {
+                                    
+                                    Button(action: {addSamples()}, label: {
+                                        
+                                        Text("Aggiungi elenco")
+                                            .fontWeight(.bold)
+                                        
+                                        
+                                        
+                                    }).sheet(isPresented: $isPresented) {
+                                        newReminderView(isPresented: $isPresented)
+                                    }
+                                })
+                                
+                            }
+                    } else {
+                        // Mostra i risultati della ricerca
+                        
+                        ForEach(filteredReminders) { reminder in
+                            if !reminder.completato {
+                                TaskCell(reminder: reminder)
+                                    .listRowBackground(Color.clear)
+                                    .listRowInsets(EdgeInsets())
+                                  
+                            }
                         }
-                        .background(colorScheme == .dark ? Color.black : Color.clear)
-
-                        
-                        
-                        
-                        
-                        
-                        .searchable(text: $searchText)
                     }
+                }
+                .background(colorScheme == .dark ? Color.black : Color.clear)
+                
+                //   cardsReminderView(isPresented: $isPresented)
+                
+                
+                
+                /*  ForEach(searchResults, id: \.self) { name in
+                 NavigationLink {
+                 Text(name)
+                 } label: {
+                 Text(name)
+                 }
+                 }*/
                 
             }
-
-    var filteredReminders: [Reminder] {
-            if searchText.isEmpty {
-                return reminders
-            } else {
-                return reminders.filter { $0.titolo.contains(searchText) }
-            }
+            .background(colorScheme == .dark ? Color.black : Color.clear)
+            
+            
+            
+            
+            
+            
+            .searchable(text: $searchText)
         }
-            
-            
         
+    }
+    
+    var filteredReminders: [Reminder] {
+        if searchText.isEmpty {
+            return reminders
+        } else {
+            return reminders.filter { $0.titolo.contains(searchText) }
+        }
+    }
+    
+    
+    
     func addSamples() {
         let r1 = Reminder(titolo: "Apple Academy",note: "Arriva in tempo e ricorda di fare Badge-in!")
         let r2 = Reminder(titolo: "Andare dal Dentista")
@@ -135,18 +134,18 @@ struct ContentView: View {
         modelContext.insert(r3)
         modelContext.insert(r4)
         modelContext.insert(r5)
-
-
+        
+        
     }
 }
-    
 
-    
-    
-  
-    
-    
-    
+
+
+
+
+
+
+
 
 
 #Preview {
