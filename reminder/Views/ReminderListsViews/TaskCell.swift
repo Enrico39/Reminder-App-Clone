@@ -46,6 +46,7 @@ struct TaskCell: View {
                           .foregroundStyle(Color.orange)
                           .frame(width: 17, height: 17)
                           .padding(.horizontal)
+                          .padding(.top,7)
                   }
               }
               

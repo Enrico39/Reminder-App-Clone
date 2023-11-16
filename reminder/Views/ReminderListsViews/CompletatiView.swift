@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+
 struct CompletatiView: View {
     @Binding var isPresented:Bool
 
@@ -16,22 +17,39 @@ struct CompletatiView: View {
         
       
         // (2)
-      
-       /* HStack {
-            Text("Tutti")
-            Spacer()
-            Text("\(reminders.count)")
-        }
-        .font(.system(.largeTitle, design: .rounded))
-        .bold()
-        .foregroundColor(Color.black)
-        .padding(.horizontal)
         
-        */
-            List {
-                
-                ForEach (self.reminders) {
+          /*  HStack {
+                Text("Completati")
+                Spacer()
+                //Text("\(reminders.count)")
+            }
+            .font(.system(.largeTitle, design: .rounded))
+            .bold()
+            .foregroundColor(Color.gray)
+            .padding(.horizontal)
+            .accessibilityLabel("Tutti i Promemoria")
+            */
+            
+            
+            
+            
+                List {
+                    HStack{
+                        Text("\(reminders.filter { $0.completato }.count) completati • ")
+                            .foregroundColor(Color.gray)
+                        Button("Elimina"){
+                            eliminaRemindersCompletati()
+                            
+                        }
+                        .disabled(reminders.filter { $0.completato }.count==0)
+                        Spacer()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
+                        .padding(.vertical)
+                  
                     
+                ForEach (self.reminders) {
                     
                     reminder in
                     if(reminder.completato == true)
@@ -40,7 +58,7 @@ struct CompletatiView: View {
                             .listRowBackground(Color.clear)
                             .listRowInsets(EdgeInsets())
                             .swipeActions {
-                              
+                                
                                 Button {
                                     withAnimation(.easeInOut(duration: 0.5)) {
                                         modelContext.delete(reminder)
@@ -53,34 +71,36 @@ struct CompletatiView: View {
                                 .tint(.red)
                                 
                                 
-                                Button {
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        reminder.contrassegnato.toggle()
-                                    }
-                                    
-                                    print("Message contrassegnato")
-                                } label: {
-                                    Label("Contrassegna", systemImage: "flag.fill")
-                                }
-                                .tint(.orange)
                             }
                     }
                 }
                 
-                .navigationBarTitle("Completati", displayMode: .large)
-          
+                //  .navigationBarTitle("Completati", displayMode: .large)
+                
                 
             }
-           
+                
+                .navigationBarTitle("Completati", displayMode: .large)
+
+            
         
-        
-         
+
+ 
 
 
             //.onDelete(perform: deleteDestinations)
         
         
         }
+    
+    
+    func eliminaRemindersCompletati() {
+        let completati = reminders.filter { $0.completato }
+        for reminder in completati {
+            modelContext.delete(reminder)
+        }
+  
+    }
 }
 
 #Preview {

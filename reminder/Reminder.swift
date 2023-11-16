@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Reminder {
+class Reminder{
     var titolo: String
     var note: String
     var completato: Bool

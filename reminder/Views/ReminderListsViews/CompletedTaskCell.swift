@@ -16,8 +16,7 @@ struct CompletedTaskCell: View {
           
           VStack(alignment:.leading){
               HStack {
-                  
-                  
+                   
                   Button(action:
                           {
                     
@@ -35,9 +34,12 @@ struct CompletedTaskCell: View {
                           .resizable()
                           .foregroundStyle(complete ? Color.gray : Color.gray)
                           .frame(width: 23, height: 23)})
+                  .padding(.top,5)
+
                   
                   Text(reminder.titolo)
                       .padding(.leading, 5.0)
+                      .padding(.top,5)
                   Spacer()
                   if(reminder.contrassegnato == true){
                       Image(systemName: "flag.fill")
@@ -45,6 +47,8 @@ struct CompletedTaskCell: View {
                           .foregroundStyle(Color.orange)
                           .frame(width: 17, height: 17)
                           .padding(.horizontal)
+                          .padding(.top,7)
+
                   }
               }
               
