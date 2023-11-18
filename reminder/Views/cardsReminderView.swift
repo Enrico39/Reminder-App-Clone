@@ -33,14 +33,16 @@ struct cardsReminderView: View {
                     NavigationLink(destination: PromemoriaView(isPresented: $isPresented)){
                         
                         CardView(systemImageName: "tray.circle.fill", systemImageColor: .gray, title: "Tutti", number: String(reminders.filter { !$0.completato }.count))
-                            .accessibilityLabel("Promemoria")
+                            .accessibilityLabel("All reminders \(String(reminders.filter { !$0.completato }.count))")
                             .accessibilityIdentifier(/*@START_MENU_TOKEN@*/"Identifier"/*@END_MENU_TOKEN@*/)
+                            .accessibilityHint("Double tap to see all reminders")
                         
                      }
                     
                     NavigationLink(destination: ContrassegnatiView(isPresented: $isPresented)){
                         CardView(systemImageName: "flag.circle.fill", systemImageColor: .orange, title: "Contrassegnati", number: String(reminders.filter { $0.contrassegnato }.count))
-                            .accessibilityLabel("Contrassegnati")
+                            .accessibilityLabel("Contrassegnati \(String(reminders.filter { $0.contrassegnato }.count))")
+                            .accessibilityHint("Double tap to see favourite reminders")
                      }
                     
                     
@@ -48,7 +50,8 @@ struct cardsReminderView: View {
                         
                         CardView(systemImageName: "checkmark.circle.fill", systemImageColor: .teal, title: "Completati", number: "")
                             .accessibilityLabel("Promemoria Completati")
-                        .accessibilityIdentifier(/*@START_MENU_TOKEN@*/"Identifier"/*@END_MENU_TOKEN@*/)}
+                            .accessibilityIdentifier("Identifier")
+                        .accessibilityHint("Double tap to see completed reminders")}
                 }
                 
                 .padding()
