@@ -34,6 +34,8 @@ struct CompletedTaskCell: View {
                           .resizable()
                           .foregroundStyle(complete ? Color.gray : Color.gray)
                           .frame(width: 23, height: 23)})
+                  .accessibilityLabel("Delete")
+                  .accessibilityHint("Double tap to delete \(reminder.titolo)")
                   .padding(.top,5)
 
                   

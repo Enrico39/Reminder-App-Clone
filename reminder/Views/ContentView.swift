@@ -88,17 +88,7 @@ struct ContentView: View {
                 }
                 .background(colorScheme == .dark ? Color.black : Color.clear)
                 
-                //   cardsReminderView(isPresented: $isPresented)
-                
-                
-                
-                /*  ForEach(searchResults, id: \.self) { name in
-                 NavigationLink {
-                 Text(name)
-                 } label: {
-                 Text(name)
-                 }
-                 }*/
+              
                 
             }
             .background(colorScheme == .dark ? Color.black : Color.clear)

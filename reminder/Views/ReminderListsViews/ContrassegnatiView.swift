@@ -17,9 +17,7 @@ struct ContrassegnatiView: View {
     @Environment(\.modelContext) var modelContext
     var body: some View {
         
-      
-        // (2)
-      
+     
        /* HStack {
             Text("Tutti")
             Spacer()
@@ -75,13 +73,7 @@ struct ContrassegnatiView: View {
                 
             }
            
-        
-        
          
-
-
-            //.onDelete(perform: deleteDestinations)
-        
         
         }
 }

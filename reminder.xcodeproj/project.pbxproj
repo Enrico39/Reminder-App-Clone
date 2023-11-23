@@ -28,6 +28,7 @@
 		AA89BB8E2B0553450091EC95 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		AA89BB902B05546C0091EC95 /* ContrassegnatiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContrassegnatiView.swift; sourceTree = "<group>"; };
 		AA89BB922B0556580091EC95 /* CompletedTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTaskCell.swift; sourceTree = "<group>"; };
+		AAB412A52B0D1F6000A21A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AABCA99D2B03A98C00D49F6F /* cardsReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardsReminderView.swift; sourceTree = "<group>"; };
 		AABCA99F2B03CB2700D49F6F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		AABCA9A12B040C6700D49F6F /* PromemoriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromemoriaView.swift; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		AAE8AB722B0289B10029580E /* reminder */ = {
 			isa = PBXGroup;
 			children = (
+				AAB412A52B0D1F6000A21A1E /* Info.plist */,
 				AAE8AB732B0289B10029580E /* reminderApp.swift */,
 				AA89BB942B055B0C0091EC95 /* Views */,
 				AABCA99F2B03CB2700D49F6F /* Reminder.swift */,
@@ -327,6 +329,8 @@
 				DEVELOPMENT_TEAM = HYPJ59HF7X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = reminder/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -356,6 +360,8 @@
 				DEVELOPMENT_TEAM = HYPJ59HF7X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = reminder/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

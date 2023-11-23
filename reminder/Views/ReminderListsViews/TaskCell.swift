@@ -36,6 +36,9 @@ struct TaskCell: View {
                           .resizable()
                           .foregroundStyle(complete ? Color.blue : Color.gray)
                           .frame(width: 23, height: 23)})
+                  .accessibilityLabel("Complete")
+                  .accessibilityHint("Double tap to mark as complete \(reminder.titolo)")
+
                   
                   Text(reminder.titolo)
                       .padding(.leading, 5.0)
